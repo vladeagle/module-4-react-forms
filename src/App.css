@@ -1,38 +1,141 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+.app {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.app__container {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.spacer {
+  margin: 16px auto;
+}
+
+.button {
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  z-index: 1;
+  margin: 24px;
+}
+.button::after {
+  content: "";
+  background-color: #ffe54c;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+.button:hover::after {
+  top: 0px;
+  left: 0px;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #ffe54c;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-track-piece {
+  border-radius: 10px;
+  background-color: #ececec;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+input {
+  height: 34px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  padding: 4px 16px;
+  font-size: 18px;
+}
+input:not(:disabled, .unstyled):active,
+input:not(:disabled, .unstyled):hover {
+  border: 1px solid #ffe54c;
+}
+
+.input-field .required {
+  color: red;
+}
+.input-field .label {
+  margin: 24px 0 8px;
+  font-size: 24px;
+}
+.input-field .description {
+  margin: 8px 0;
+  font-size: 16px;
+}
+.input-field .error {
+  margin: 8px 0 0;
+  font-size: 16px;
+  color: red;
+}
+.input-field .radio-items {
+  display: flex;
+  gap: 24px;
+}
+.input-field .radio {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.input-field .default {
+  height: 34px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 18px;
+}
+.input-field .filled {
+  background: #282c34;
+  color: white;
+}
+.input-field .unstyled {
+  background: unset;
+  color: unset;
+  border: unset;
+  border-radius: unset !important;
+}
+.input-field .with-icon {
+  position: relative;
+}
+.input-field .with-icon svg {
+  position: absolute;
+  left: 10px;
+  top: 14px;
+}
+.input-field .with-icon input {
+  padding-left: 44px;
 }
